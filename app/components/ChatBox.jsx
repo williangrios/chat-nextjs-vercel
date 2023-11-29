@@ -23,8 +23,8 @@ export default function ChatBox() {
         setMessageText("");
         inputBox.focus();
       }
-      const handleFormSubmission = (event) => {
-        event.preventDefault();
+      const handleFormSubmission = (e) => {
+        e.preventDefault();
         sendChatMessage(messageText);
       }
       const handleKeyPress = (e) => {
@@ -32,7 +32,7 @@ export default function ChatBox() {
           return;
         }
         sendChatMessage(messageText);
-        event.preventDefault();
+        e.preventDefault();
       }
       const messages = receivedMessages.map((message, index) => {
         const author = message.connectionId === ably.connection.id ? "me" : "other";
